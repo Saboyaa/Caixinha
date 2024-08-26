@@ -10,11 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.JoinColumn;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
 @SpringBootApplication
@@ -26,7 +28,10 @@ public class BackendApplication {
 
 }
 
-class bank {
+@Entity
+class Bank {
+	@Id
+	Long id;
 	String bankName;
 	String bankPhoto;
 	float moneyPerBank;
@@ -58,7 +63,10 @@ class Client {
 	Long id;
 	String clientName;
 	float totalMoney;
-	List<bank> bankList;
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name = "client_id") // Creates a foreign key in the Bank table
+	List<Bank> bankList;
+
 	public Long getId() {
 		return id;
 	}
@@ -77,10 +85,10 @@ class Client {
 	public void setTotalMoney(float totalMoney) {
 		this.totalMoney = totalMoney;
 	}
-	public List<bank> getBankList() {
+	public List<Bank> getBankList() {
 		return bankList;
 	}
-	public void setBankList(List<bank> bankList) {
+	public void setBankList(List<Bank> bankList) {
 		this.bankList = bankList;
 	}
 
@@ -88,7 +96,7 @@ class Client {
 }
 
 @RestController
-@RequestMapping("/backend")
+@RequestMapping("/demo")
 class backendControler{
 	BackendService backendService;
 	
@@ -112,7 +120,7 @@ class BackendService {
 	}
 
 	public Optional<Client> getClient(Long id){
-		return backendRepository.findByID(id);
+		return backendRepository.findById(id);
 	}
 }
 
