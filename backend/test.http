@@ -1,0 +1,28 @@
+
+###add book
+POST http://localhost:8080/api/addClient
+Content-Type: application/json
+
+{
+  "clientName": "test 3",
+  "totalMoney": 1234.5
+}
+###see all books
+GET http://localhost:8080/api/getAllClient
+Accept: application/json
+
+### Deletar um livro
+DELETE http://localhost:8080/api/deleteById/3
+
+### Listar 1 livro especifico
+GET http://localhost:8080/books/2
+Accept: application/json
+
+### Atualizar um livro existente
+POST http://localhost:8080/api/updateClient/2
+Content-Type: application/json
+
+{
+  "clientName": "Sasa",
+  "totalMoney": 2222.0
+}
