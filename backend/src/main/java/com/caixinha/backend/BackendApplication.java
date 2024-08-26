@@ -1,8 +1,21 @@
 package com.caixinha.backend;
 
+import java.util.Optional;
 import java.util.List;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Service;
 
 @SpringBootApplication
 public class BackendApplication {
@@ -38,15 +51,18 @@ class bank {
 
 	
 }
+
+@Entity
 class Client {
-	long id;
+	@Id
+	Long id;
 	String clientName;
 	float totalMoney;
 	List<bank> bankList;
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getClientName() {
@@ -69,4 +85,37 @@ class Client {
 	}
 
 	
+}
+
+@RestController
+@RequestMapping("/backend")
+class backendControler{
+	BackendService backendService;
+	
+	public backendControler(BackendService backendService) {
+		this.backendService = backendService;
+	}
+
+	@GetMapping("/{id}")
+	public Client getClient(@PathVariable("id") Long id){
+		return backendService.getClient(id).orElse(null);
+	};	
+	
+}
+
+@Service
+class BackendService {
+	BackendRepository backendRepository;
+
+	public BackendService(BackendRepository backendRepository) {
+		this.backendRepository = backendRepository;
+	}
+
+	public Optional<Client> getClient(Long id){
+		return backendRepository.findByID(id);
+	}
+}
+
+interface BackendRepository extends JpaRepository<Client,Long>{
+
 }
