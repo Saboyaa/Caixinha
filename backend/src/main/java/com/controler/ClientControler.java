@@ -20,8 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
-class backendControler{
+@RequestMapping("/client")
+class clientControler{
 
 	@GetMapping()
 	public String teste(){

@@ -1,6 +1,6 @@
 
 ###add book
-POST http://localhost:8080/api/addClient
+POST http://localhost:8080/client/addClient
 Content-Type: application/json
 
 {
@@ -8,18 +8,18 @@ Content-Type: application/json
   "totalMoney": 1234.5
 }
 ###see all books
-GET http://localhost:8080/api/getAllClient
+GET http://localhost:8080/client/getAllClient
 Accept: application/json
 
 ### Deletar um livro
-DELETE http://localhost:8080/api/deleteById/2
+DELETE http://localhost:8080/client/deleteById/2
 
 ### Listar 1 livro especifico
-GET http://localhost:8080/api/getClientById/3
+GET http://localhost:8080/client/getClientById/3
 Accept: application/json
 
 ### Atualizar um livro existente
-POST http://localhost:8080/api/updateClient/2
+POST http://localhost:8080/client/updateClient/2
 Content-Type: application/json
 
 {
