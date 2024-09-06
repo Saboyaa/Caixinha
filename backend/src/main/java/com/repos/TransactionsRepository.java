@@ -1,8 +1,12 @@
 package com.repos;
 
+import com.classes.Transactions;
+
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
-import com.classes.Bank;
 
-public interface TransactionsRepository extends JpaRepository<Bank,Long>{
+public interface TransactionsRepository extends JpaRepository<Transactions,Long>{
 
+    List<Transactions> findByClientId(Long clientId);
 }

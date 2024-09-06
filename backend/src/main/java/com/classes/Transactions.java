@@ -2,14 +2,15 @@ package com.classes;
 
 import jakarta.persistence.*;
 import java.sql.Timestamp;
-public 
+
+import org.hibernate.annotations.CurrentTimestamp;
 @Entity
-class Transactions{
+public class Transactions{
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	Long id;
 	@Column
-	Long client_id;
+	Long clientId;
 	@Column
 	String bankName;
 	@Column
@@ -17,6 +18,7 @@ class Transactions{
 	@Column
 	Float moneyBank;
 	@Column
+	@CurrentTimestamp
 	Timestamp timeOfTransaction;
 	public Long getId() {
 		return id;
@@ -24,11 +26,11 @@ class Transactions{
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public Long getClient_id() {
-		return client_id;
+	public Long getClientId() {
+		return clientId;
 	}
-	public void setClient_id(Long client_id) {
-		this.client_id = client_id;
+	public void setClient_id(Long clientId) {
+		this.clientId = clientId;
 	}
 	public String getBankName() {
 		return bankName;

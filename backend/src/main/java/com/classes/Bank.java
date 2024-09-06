@@ -6,10 +6,10 @@ import jakarta.persistence.*;
 @Entity
 public class Bank {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	Long id;
 	@Column
-	Long client_id;
+	Long clientId;
 	@Column
 	String bankName;
 	@Column
@@ -22,11 +22,11 @@ public class Bank {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public long getClient_id() {
-		return client_id;
+	public long getClientId() {
+		return clientId;
 	}
-	public void setClient_id(long client_id) {
-		this.client_id = client_id;
+	public void setClientId(long clientId) {
+		this.clientId = clientId;
 	}
 	public String getBankName() {
 		return bankName;

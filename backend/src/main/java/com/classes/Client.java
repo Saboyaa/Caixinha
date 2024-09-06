@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 @Entity
 public class Client {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	Long id;
 	@Column
 	String clientName;
