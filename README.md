@@ -1,2 +1,12 @@
 # Caixinha
-App Web e Android de Finanças feito em java
+Web App and Android for finance management done in java lang
+
+## Backend testing
+### 1. Run the server
+
+docker build -t caixinha:1.0 ./backend
+docker run -P 8080:8080 caixinha:1.0 
+
+### 2. Testing backend functions
+
+acess the test_http folder and use curl or postman for http responses
