@@ -4,7 +4,7 @@ POST http://localhost:8080/transactions/addTransactions
 Content-Type: application/json
 
 {
-  "bankName": "sabs",
+  "bankName": "sabs2",
   "bankPhoto": "photo",
   "clientId": 1,
   "moneyBank": 100.0

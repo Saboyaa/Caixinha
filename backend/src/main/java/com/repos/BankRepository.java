@@ -8,4 +8,5 @@ import com.classes.Bank;
 public interface BankRepository extends JpaRepository<Bank,Long>{
 
     List<Bank> findByClientId(long clientId);
+    List<Bank> findByBankName(String bankName);
 }
