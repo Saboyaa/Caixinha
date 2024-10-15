@@ -1,0 +1,12 @@
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 10% 90%;
+}
+
+.resto{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 15% 85%;
+}
