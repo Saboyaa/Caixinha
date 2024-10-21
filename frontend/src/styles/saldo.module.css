@@ -1,12 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+h1, h2, h3, h4, h5, h6, p{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
 .container{
+    /* background-color: blue; */
     width: 100vw;
     height: 100vh;
     display: grid;
-    grid-template-rows: 10% 90%;
+    grid-template-rows: 75px auto;
+}
+
+.main{
+    /* background-color: pink; */
+    display:grid;
+    grid-template-rows: 75px 50px 50px 60px 50px 200px auto;
+    grid-template-columns: 300px 50px 600px auto;
+    font-family: "DM Sans";
+}
+
+.ola{
+    /* background-color: orange; */
+    grid-column: 2/4;
+    grid-row: 2/3;
+}
+
+.saldoTotal{
+    /* background-color: orange; */
+    grid-column: 2/4;
+    grid-row: 3/4;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.meusSaldos{
+    /* background-color: orange; */
+    grid-column: 3/4;
+    grid-row: 5/6;
+}
+
+.bancos{
+    /* background-color: green; */
+    grid-column: 3/4;
+    grid-row: 6/7;
+    overflow-y: auto;
+}
+
+.banco{
+    display:flex;
+    flex-direction: row;
+}
+
+.img{
+    margin-left: 10px;
+}
+
+.nome{
+    margin-left: 25px;
+}
+
+.saldo{
+    margin-left: auto;
+    margin-right: 30px;
 }
 
 .resto{
+    /* background-color: red; */
     width: 100%;
     display: grid;
-    grid-template-columns: 15% 85%;
+    grid-template-columns: 175px auto;
 }

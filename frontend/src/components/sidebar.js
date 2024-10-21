@@ -4,6 +4,7 @@ import { AiFillHome } from 'react-icons/ai';
 import { AiOutlineBarChart } from 'react-icons/ai';
 import { FaDollarSign, FaExchangeAlt } from 'react-icons/fa';
 import { FaUser } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 
 
@@ -19,7 +20,7 @@ const Sidebar = (string) => {
         </div>
         <div className={styles.navlink}>
           <AiOutlineBarChart style={{marginRight: "5px", color: "4cd080"}}/>
-          <h2>Estátisticas</h2>
+          <h2>Estatísticas</h2>
         </div>
         <div className={styles.navlink}>
           <FaDollarSign style={{marginRight: "5px", color: "4cd080"}}/>
