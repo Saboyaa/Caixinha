@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.Container{
+    width: 85%;
+    display: flex;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+    background-color: white;
+    padding: 15px;
+}
+
+
+
+.erro {
+    color: red;
+}
+
+.Container h2{
+    font-family: "Roboto", sans-serif;
+    font-size: 40px;
+    color: #4cd080;
+}
+
+
+
+.forms{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.inputs{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    font-family: "Roboto", sans-serif;
+    color: #aeaeae;
+    font-size: 20px;
+}
+
+.inputs label{
+    font-weight: 400;
+    font-size: 18px;
+    text-align: start;
+    margin-left: 4px;
+}
+
+.forms input{
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.forms select {
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    color: #333;
+    -webkit-appearance: none; /* Remove a seta padrão no Chrome */
+    -moz-appearance: none; /* Remove a seta padrão no Firefox */
+    appearance: none; /* Remove a seta padrão nos browsers compatíveis */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path fill="none" stroke="%234cd080" stroke-width="2" d="M2 4l4 4 4-4"/></svg>'); /* Ícone verde para a seta */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+}
+
+.forms select:focus {
+    border-color: #4cd080; /* Destaque com a cor verde ao focar */
+    outline: none; /* Remove a borda de foco padrão */
+}
+
+
+
+.forms button{
+    width: 35%;
+    background-color: #4cd080;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+
+.forms p{
+    color: #49A9F8;
+    font-size: 16px;
+}
+
+.radio{
+    display: flex;
+    flex-direction: column;
+}
+
+

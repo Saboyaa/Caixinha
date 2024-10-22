@@ -12,8 +12,8 @@
 
 .mainContent{
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    background-color: rgb(245, 245, 245);
+    background-color: #efefef
 }
 
