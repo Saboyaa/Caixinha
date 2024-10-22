@@ -1,16 +1,9 @@
-import React from "react";
-import styles from '../styles/saldo.module.css'
-import Sidebar from "../components/sidebar";
-import Header1 from "../components/header1";
+import styles from '../styles/components/saldo.module.css'
 
-function Saldo(){
+const Saldo = () => {
     return(
-        <div className={styles.container}>
-            <Header1/>
-            <div className={styles.resto}>
-                <Sidebar/>
-                <div className={styles.main}>
-                    <div className={styles.ola}>
+        <div>
+                                <div className={styles.ola}>
                         <h1>Olá, [nome]</h1>
                     </div>
                     <div className={styles.saldoTotal}>
@@ -27,8 +20,6 @@ function Saldo(){
                             <h2 className = {styles.saldo}>Saldo</h2>
                         </div>
                     </div>
-                </div>
-            </div>
         </div>
     )
 }

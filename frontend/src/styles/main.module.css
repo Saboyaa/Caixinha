@@ -1,0 +1,19 @@
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 7% 93%;
+}
+
+.resto{
+    display: grid;
+    grid-template-columns: 15% 85%;
+}
+
+.mainContent{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(245, 245, 245);
+}
+

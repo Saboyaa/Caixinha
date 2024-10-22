@@ -18,7 +18,7 @@ function Login(){
 
         setemail("");
         setPassword("");
-        navigate('/saldo')
+        navigate('/Main')
 
     };
 

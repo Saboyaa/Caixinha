@@ -6,8 +6,9 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Intro from './pages/intro';
 import Login from './pages/login';
 import Resetsenha from './pages/resetpwrd';
-import Cadastro from './pages/cadastro';
-import Saldo from './pages/saldo';
+import Cadastro from './pages/cadastro';  
+import MainPage from './pages/main';
+import { AppProvider } from './context/appContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -29,23 +30,22 @@ const router = createBrowserRouter([
     element: <Resetsenha />
   },
   {
-    path: "/Saldo",
-    element: <Saldo />
+    path: "/Main",
+    element: <MainPage />
   },
   {
     path: "/Caixinha",
-    element: <Resetsenha />
-  },
-  {
-    path: "/",
     element: <Resetsenha />
   },
 ])
 
 
 root.render(
+
   <React.StrictMode>
-      <RouterProvider router={router}/>
+      <AppProvider>
+        <RouterProvider router={router}/>
+      </AppProvider> 
   </React.StrictMode>
 );
 
