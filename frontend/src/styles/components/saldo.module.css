@@ -21,6 +21,7 @@ h1, h2, h3, h4, h5, h6, p{
 
 .ola{
     font-size: 26px;
+    margin-bottom: 20px;
 }
 
 .saldoTotal{
@@ -28,16 +29,17 @@ h1, h2, h3, h4, h5, h6, p{
     flex-direction: row;
     justify-content: space-between;
     font-size: 24px;
+    margin-bottom: 30px;
 }
 
 .meusSaldos{
-    /* background-color: orange; */
-    grid-column: 3/4;
-    grid-row: 5/6;
+    font-size: 22px;
 }
 
 .bancos{
     margin-bottom: 10px;
+    max-height: 200px;
+    overflow-y: auto;
 }
 
 .banco{
