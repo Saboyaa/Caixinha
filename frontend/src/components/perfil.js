@@ -14,7 +14,6 @@ const Perfil = () => {
             <div className={styles.perfilinfo}>
                 <p><strong>Nome:</strong> {usuario.nome}</p>
                 <p><strong>Email:</strong> {usuario.email}</p>
-                <p><strong>Data de Aniversário:</strong> {usuario.aniversario}</p>
                 <div className={styles.perfilbancos}>
                     <h3>Bancos Cadastrados:</h3>
                     <ul>

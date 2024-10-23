@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Cadastro(){
+    const [nome, setNome] = useState("");
     const [email, setemail] = useState("");
     const [password, setPassword] = useState("");
     const [password2, setPassword2] = useState("");
@@ -30,6 +31,15 @@ function Cadastro(){
                 <div className={styles.box}>
                     <h2>Cadastro</h2>
                     <form onSubmit={handleSubmit} className={styles.forms}>
+                        <div className={styles.inputs}>
+                            <label htmlFor="Nome">Nome: </label>
+                            <input
+                            type="text"
+                            placeholder="Nome"
+                            id="nome"
+                            value={nome}
+                            onChange={(e) => setNome(e.target.value)}/>
+                        </div>
                         <div className={styles.inputs}>
                             <label htmlFor="Email">Email: </label>
                             <input

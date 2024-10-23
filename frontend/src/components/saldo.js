@@ -1,6 +1,6 @@
 import styles from '../styles/components/saldo.module.css'
 
-const Saldo = () => {
+const Saldo = ({array}) => {
     return(
         <div className={styles.container}>
             <div className={styles.ola}>
