@@ -13,9 +13,18 @@ import Perfil from "../components/perfil";
 
 
 function MainPage(){
+
+    const initialData = [
+        { nome: 'Viagem', valor: 1500 },
+        { nome: 'Carro', valor: 20000 },
+        { nome: 'Presente', valor: 300 },
+        { nome: 'Educação', valor: 10000 },
+        { nome: 'Investimento', valor: 5000 }
+    ];
+
     const{ sb, setSb } = useContext(AppContext)
 
-    const componentArray = [<Saldo/>, <Caixinhas/>, <Lançamentos/>, <Estatísticas/>, <Perfil/>]
+    const componentArray = [<Saldo/>, <Caixinhas array={initialData}/>, <Lançamentos/>, <Estatísticas/>, <Perfil/>]
 
     return(
         <div className={styles.container}>

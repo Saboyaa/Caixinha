@@ -90,7 +90,7 @@ function Addmodal(){
               <h4>Formulário não submetido. As Nomes não coincidem!</h4>
             </div>
           )}
-          <button onClick={handleSubmit}>Adicionar item</button>
+          <button onClick={handleSubmit} style = {{width: '50%'}}>Adicionar Entrada</button>
         </div>
       </div>  
       

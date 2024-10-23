@@ -17,7 +17,7 @@ const Estatísticas = () => {
             <h2>Estatísticas</h2>
             <br></br>
             <div className={styles.grafico}>
-                <BarChart width={600} height={400} data={gastos} margin={{ top: 5, right: 30, left: 30, bottom: 5 }}>
+                <BarChart width={800} height={400} data={gastos} margin={{ top: 5, right: 30, left: 30, bottom: 5 }}>
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="motivo" />
                     <YAxis />
