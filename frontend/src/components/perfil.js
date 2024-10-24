@@ -1,6 +1,12 @@
 import styles from '../styles/components/perfil.module.css'
+import { useEffect, useState } from 'react';
+import { useAuth } from '../context/AuthProvider';
 
 const Perfil = () => {
+    const { name, setName } = useState(localStorage.getItem('name'));
+    const { email, setEmail } = useState(localStorage.getItem('email'));
+    const { token } = useAuth();
+
     const usuario = {
         nome: "João Vitor Neves Duarte",
         email: "joao@example.com",
@@ -12,7 +18,7 @@ const Perfil = () => {
         <div className={styles.perfilcontainer}>
             <h2>Perfil do Usuário</h2>
             <div className={styles.perfilinfo}>
-                <p><strong>Nome:</strong> {usuario.nome}</p>
+                <p><strong>Nome:</strong> {token}</p>
                 <p><strong>Email:</strong> {usuario.email}</p>
                 <div className={styles.perfilbancos}>
                     <h3>Bancos Cadastrados:</h3>
