@@ -5,7 +5,7 @@ import { AiOutlineBarChart } from 'react-icons/ai';
 import { FaDollarSign, FaExchangeAlt } from 'react-icons/fa';
 import { FaUser } from 'react-icons/fa';
 import { useContext } from 'react';
-import { AppContext } from '../context/appContext';
+import { AppContext } from '../context/AppContext';
 import { useNavigate } from 'react-router-dom';
 import { AiOutlineBank } from 'react-icons/ai';
 import { FaBoxOpen } from 'react-icons/fa';

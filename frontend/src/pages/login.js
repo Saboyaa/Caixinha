@@ -4,8 +4,11 @@ import Header1 from '../components/header1';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../context/AuthProvider';
 
-function Login(){
+function Login() {
+    const { setToken } = useAuth();
+
     const [email, setemail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
@@ -35,14 +38,14 @@ function Login(){
             return res.json();
         })
         .then((res) => {
-            console.log(res);
-            navigate("/Login");
+            setToken(res.token);
+            navigate("/main", { replace: true });
         })
         .catch((err) => {
             setError(err.message);
             setemail("");
             setPassword("");
-            navigate("/Login");
+            navigate("/login", { replace: true });
         });
     };
 
