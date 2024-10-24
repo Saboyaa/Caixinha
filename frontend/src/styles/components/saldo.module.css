@@ -38,7 +38,7 @@ h1, h2, h3, h4, h5, h6, p{
 
 .bancos{
     margin-bottom: 10px;
-    max-height: 200px;
+    max-height: 250px;
     overflow-y: auto;
 }
 
@@ -79,4 +79,77 @@ h1, h2, h3, h4, h5, h6, p{
     font-size: 16px;
     cursor: pointer;
     padding: 0;
+}
+
+.modaloverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5); /* Borrar o fundo */
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+
+.modalcontent {
+    background-color: #4cd080;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 90%;
+    max-width: 500px;
+    flex-direction: column;
+}
+
+
+.modalcontent2{
+    background-color: #fb3333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 90%;
+    max-width: 500px;
+    flex-direction: column;
+}
+
+
+.delbutton {
+    background-color: #fb3333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    height: 42px;
+}
+
+.delbutton:hover{
+    background-color: #e12f2f;
+}
+
+.closebutton{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.closeoption{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 10px;
 }

@@ -24,7 +24,9 @@ const Lançamentos = () => {
         setmodal2(false);
     }
     
-    const transações = [
+    const Transações = [];
+
+    const transaçõesFake = [
         {
             valor: 1500,
             banco: 'Banco do Brasil'
@@ -82,7 +84,7 @@ const Lançamentos = () => {
             <div className={styles.histórico}>
                 <h1>Histórico</h1>
                 <div className={styles.transações}>
-                    {transações.map((transação, index) => (
+                    {transaçõesFake.map((transação, index) => (
                         <Card key={index} transação={transação}/>
                     ))}
                 </div>

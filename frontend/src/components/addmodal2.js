@@ -4,7 +4,7 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function Addmodal(){
+function Addmodal2(){
 
     const [bancoSelecionado, setBancoSelecionado] = useState('');
 
@@ -105,4 +105,4 @@ function Addmodal(){
     )
 }
 
-export default Addmodal;
+export default Addmodal2;

@@ -1,7 +1,7 @@
 const Logo = ({image}) => {
     return(
         <div>
-            <img src={image} style={{width: '100px', height: '100px'}}/>
+            <img src={image} style={{width: '75px', height: '75px', marginTop: '15px'}}/>
         </div>
     )
 }

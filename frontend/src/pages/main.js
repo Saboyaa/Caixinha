@@ -1,7 +1,6 @@
 import React from "react";
 import styles from '../styles/main.module.css'
 import Sidebar from "../components/sidebar";
-import Header1 from "../components/header1";
 import { useContext } from "react";
 import { AppContext } from "../context/AppContext";
 import Saldo from '../components/saldo'
