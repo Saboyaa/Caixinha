@@ -15,11 +15,35 @@ function Login(){
     const handleSubmit = async(e) => {
         e.preventDefault();
 
-
-        setemail("");
-        setPassword("");
-        navigate('/Main')
-
+        fetch('http://localhost:8080/auth/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                email: email,
+                password: password
+            })
+        })
+        .then((res) => {
+            if(res.status === 422) {
+                throw new Error("A validação falhou!");
+            }
+            if (res.status !== 200 && res.status !== 201) {
+                throw new Error("Falha na autenticação!");
+            }
+            return res.json();
+        })
+        .then((res) => {
+            console.log(res);
+            navigate("/Login");
+        })
+        .catch((err) => {
+            setError(err.message);
+            setemail("");
+            setPassword("");
+            navigate("/Login");
+        });
     };
 
     return (
@@ -39,7 +63,7 @@ function Login(){
                             onChange={(e) => setemail(e.target.value)}/>
                         </div>
                         <div className={styles.inputs}>
-                            <label htmlFor="Email">Senha: </label>
+                            <label htmlFor="Senha">Senha: </label>
                             <input
                             type="password"
                             placeholder="Senha"

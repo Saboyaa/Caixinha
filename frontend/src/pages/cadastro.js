@@ -13,15 +13,42 @@ function Cadastro(){
 
     const navigate = useNavigate();
 
-    const handleSubmit = async(e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-
-
-        setemail("");
-        setPassword("");
-        setPassword2("");
-        navigate('/')
-
+        if (password !== password2) {
+            setError("Senhas diferentes");
+            setPassword2("");
+            navigate("/Cadastro");
+            return;
+        }
+        fetch('http://localhost:8080/auth/signup', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                name: nome,
+                email: email,
+                password: password
+            })
+        })
+        .then((res) => {
+            if(res.status === 422) {
+                throw new Error("A validação falhou!");
+            }
+            if (res.status !== 200 && res.status !== 201) {
+                throw new Error("A criação de usuário falhou");
+            }
+            navigate("/Login");
+        })
+        .catch((err) => {
+            setError(err.message);
+            setNome("");
+            setemail("");
+            setPassword("");
+            setPassword2("");
+            navigate("/Cadastro");
+        });
     };
 
     return (
@@ -64,8 +91,8 @@ function Cadastro(){
                             type="password"
                             placeholder="Repita a senha"
                             id="Password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}/>
+                            value={password2}
+                            onChange={(e) => setPassword2(e.target.value)}/>
                         </div>
                         {error && (
                             <div className={styles.erro}>
