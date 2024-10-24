@@ -8,6 +8,7 @@ import { useAuth } from '../context/AuthProvider';
 const Saldo = () => {
     const { token } = useAuth();
     const [accounts, setAccounts] = useState([]);
+    const [saldoTotal, setSaldoTotal] = useState(0);
 
     useEffect(() => {
         fetch('http://localhost:8080/accounts/userId/' + token.userId, {
@@ -23,21 +24,14 @@ const Saldo = () => {
             return res.json();
         })
         .then((data) => {
+            let sum = 0;
+            data.forEach(account => {
+                sum += account.accountBalance;
+            });
+            setSaldoTotal(sum);
             setAccounts(data);
         })
     }, []);
-
-    const BancosFake = [{
-        id: 101,
-        nome: 'Nubank',
-        saldo: 1500,
-    },
-    {
-        id: 102,
-        nome: 'Bradesco',
-        saldo: 1300,
-    },
-    ]
 
     const [modal1, setmodal1] = useState(false);
 
@@ -56,13 +50,13 @@ const Saldo = () => {
             </div>
             <div className={styles.saldoTotal}>
                 <h2  style={{ color: '#8F92A1', fontWeight:"normal"}}>Saldo Total Disponível:</h2>
-                <h2>R$ [saldoTotal]</h2>
+                <h2>R$ {saldoTotal}</h2>
             </div>
             <div className={styles.meusSaldos}>
                 <h1>Meus saldos</h1>
             </div>
             <div className={styles.bancos}>
-                {BancosFake.map((banco, index) => (
+                {accounts.map((banco, index) => (
                             <Card2 key={index} banco={banco}/>
                         ))}
                 </div>

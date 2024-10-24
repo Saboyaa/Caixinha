@@ -35,8 +35,9 @@ const Card2 = ({banco}) =>{
     return(
         <div className={styles.banco}>
             <h3 className = {styles.img}><Logo image={logos[logot]}/></h3>
-            <h3 className = {styles.nome}>{banco.nome}</h3>
-            <h3 className = {styles.saldo}>R${banco.saldo}</h3>
+            <h3 className = {styles.nome}>{banco.accountNumber}</h3>
+            <h3 className = {styles.nome}>{banco.bankName}</h3>
+            <h3 className = {styles.saldo}>R${banco.accountBalance}</h3>
         </div>
     )
 }

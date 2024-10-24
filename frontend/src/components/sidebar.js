@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from '../styles/components/sidebar.module.css'
 import { AiOutlineBarChart } from 'react-icons/ai';
-import { FaDollarSign, FaExchangeAlt } from 'react-icons/fa';
+import { FaDollarSign } from 'react-icons/fa';
 import { FaUser } from 'react-icons/fa';
 import { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
