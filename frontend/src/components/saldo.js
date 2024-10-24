@@ -1,12 +1,31 @@
 import styles from '../styles/components/saldo.module.css'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Card2 from './cardsaldo';
 import Addmodal2 from './addmodal2';
 import { AiOutlineClose } from 'react-icons/ai';
+import { useAuth } from '../context/AuthProvider';
 
 const Saldo = () => {
+    const { token } = useAuth();
+    const [accounts, setAccounts] = useState([]);
 
-    const Bancos = [];
+    useEffect(() => {
+        fetch('http://localhost:8080/accounts/userId/' + token.userId, {
+            method: 'GET',
+            headers: {
+                Authorization: 'Bearer ' + token.token
+            }
+        })
+        .then((res) => {
+            if (res.status !== 200) {
+                throw new Error('Falha de requisição das contas!');
+            }
+            return res.json();
+        })
+        .then((data) => {
+            setAccounts(data);
+        })
+    }, []);
 
     const BancosFake = [{
         id: 101,
@@ -33,7 +52,7 @@ const Saldo = () => {
     return(
         <div className={styles.container}>
             <div className={styles.ola}>
-                <h1>Olá, [nome]</h1>
+                <h1>Olá, {token.name}</h1>
             </div>
             <div className={styles.saldoTotal}>
                 <h2  style={{ color: '#8F92A1', fontWeight:"normal"}}>Saldo Total Disponível:</h2>

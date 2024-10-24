@@ -4,7 +4,7 @@ import { useAuth } from "../context/AuthProvider";
 export const ProtectedRoute = () => {
     const { token } = useAuth();
 
-    if (!token) {
+    if (!Object.keys(token).length) {
         return <Navigate to="/login" />;
     }
 

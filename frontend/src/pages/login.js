@@ -38,9 +38,12 @@ function Login() {
             return res.json();
         })
         .then((res) => {
-            setToken(res.token);
-            localStorage.setItem('name', res.name);
-            localStorage.setItem('email', res.email);
+            setToken({
+                token: res.token,
+                userId: res.id,
+                name: res.name,
+                email: res.email
+            });
             navigate("/main", { replace: true });
         })
         .catch((err) => {
