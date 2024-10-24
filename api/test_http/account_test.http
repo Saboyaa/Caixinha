@@ -1,0 +1,10 @@
+###add bank
+POST http://localhost:8080/account/addAccount
+Content-Type: application/json
+
+{
+  "bankName": "xuxa",
+  "bankPhoto": "photo",
+  "clientId": 1,
+  "moneyBank": 100.0
+}
