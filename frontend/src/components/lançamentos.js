@@ -31,7 +31,7 @@ const Lançamentos = () => {
         },
         {
             valor: -1200,
-            banco: 'Caixa'
+            banco: 'Nubank'
         },
         {
             valor: 1800,

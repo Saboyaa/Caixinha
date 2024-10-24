@@ -61,3 +61,22 @@ h1, h2, h3, h4, h5, h6, p{
     margin-right: 30px;
 }
 
+.modal{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 16px;
+    color: #4cd080;
+}
+
+
+.btn{
+    background-color: transparent;
+    border: none;
+    color: #4cd080;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 0;
+}

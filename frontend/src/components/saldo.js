@@ -1,6 +1,10 @@
 import styles from '../styles/components/saldo.module.css'
 
-const Saldo = ({array}) => {
+const Saldo = () => {
+
+    const [modal1, setmodal1] = useState(false);
+
+
     return(
         <div className={styles.container}>
             <div className={styles.ola}>
@@ -19,6 +23,9 @@ const Saldo = ({array}) => {
                     <h3 className = {styles.nome}>[nome]</h3>
                     <h3 className = {styles.saldo}>[Saldo]</h3>
                 </div>
+            </div>
+            <div className={styles.modal}>
+                <button className={styles.btn}><p>Adicionar um banco</p></button>
             </div>
         </div>
     )

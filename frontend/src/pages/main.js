@@ -24,7 +24,7 @@ function MainPage(){
 
     const{ sb, setSb } = useContext(AppContext)
 
-    const componentArray = [<Saldo/>, <Caixinhas array={initialData}/>, <Lançamentos/>, <Estatísticas/>, <Perfil/>]
+    const componentArray = [<Saldo/>, <Caixinhas/>, <Lançamentos/>, <Estatísticas/>, <Perfil/>]
 
     return(
         <div className={styles.container}>

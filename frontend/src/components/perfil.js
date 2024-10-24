@@ -10,18 +10,10 @@ const Perfil = () => {
 
     return (
         <div className={styles.perfilcontainer}>
-            <h2>Perfil do Usuário</h2>
+            <h2>Perfil</h2>
             <div className={styles.perfilinfo}>
                 <p><strong>Nome:</strong> {usuario.nome}</p>
                 <p><strong>Email:</strong> {usuario.email}</p>
-                <div className={styles.perfilbancos}>
-                    <h3>Bancos Cadastrados:</h3>
-                    <ul>
-                        {usuario.bancos.map((banco, index) => (
-                            <li key={index}>{banco}</li>
-                        ))}
-                    </ul>
-                </div>
             </div>
         </div>
     );

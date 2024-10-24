@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import styles from '../styles/components/caixinhas.module.css'
 import Caixinhagrid from './caixinhagrid';
-import Addmodal from './addmodal';
-import Delmodal from './delmodal';
+import Addmodal1 from './addmodal1';
+import Delmodal1 from './delmodal1';
 import { AiOutlineClose } from 'react-icons/ai';
 
 const Caixinhas = () => {
@@ -36,10 +36,10 @@ const Caixinhas = () => {
   return (
     <div className={styles.bigContainer}>
         <div className={styles.caixinhascontainer}>
-        <h2>Separe dinheiro para objetivos pessoais</h2>
-        <div className={styles.grid}>
-                <Caixinhagrid Array={initialData}/>
-        </div>
+            <h2>Separe dinheiro para objetivos pessoais</h2>
+            <div className={styles.grid}>
+                    <Caixinhagrid Array={initialData}/>
+            </div>
         </div>
         <div className={styles.options}>
                 <div className={styles.optionstext}>
@@ -57,7 +57,7 @@ const Caixinhas = () => {
                                                 <AiOutlineClose  color="white" size={24} />
                                             </button>
                                         </div>
-                                        <Addmodal/>
+                                        <Addmodal1/>
                                     </div>
                                 </div>
                     )}
@@ -70,7 +70,7 @@ const Caixinhas = () => {
                                                 <AiOutlineClose  color="white" size={24} />
                                             </button>
                                         </div>
-                                        <Delmodal/>
+                                        <Delmodal1/>
                                     </div>
                                 </div>    
                     )}

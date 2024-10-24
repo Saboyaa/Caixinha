@@ -15,7 +15,7 @@ import { FaHistory } from 'react-icons/fa';
 
 
 
-const Sidebar = (string) => {
+const Sidebar = () => {
   const{ sb, setSb } = useContext(AppContext);
 
   const navigate = useNavigate();
