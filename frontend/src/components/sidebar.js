@@ -1,16 +1,14 @@
 import React from 'react';
 import styles from '../styles/components/sidebar.module.css'
-import { AiFillHome } from 'react-icons/ai';
 import { AiOutlineBarChart } from 'react-icons/ai';
 import { FaDollarSign, FaExchangeAlt } from 'react-icons/fa';
 import { FaUser } from 'react-icons/fa';
 import { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
 import { useNavigate } from 'react-router-dom';
-import { AiOutlineBank } from 'react-icons/ai';
 import { FaBoxOpen } from 'react-icons/fa';
 import { FaHistory } from 'react-icons/fa';
-
+import { useAuth } from '../context/AuthProvider';
 
 
 
@@ -41,7 +39,9 @@ const Sidebar = () => {
   }
 
   const logout = () =>{
-    navigate('/')
+    const { setToken } = useAuth();
+    setToken({});
+    navigate('/');
   }
   
   return (
