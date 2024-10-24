@@ -3,7 +3,7 @@ import styles from '../styles/main.module.css'
 import Sidebar from "../components/sidebar";
 import Header1 from "../components/header1";
 import { useContext } from "react";
-import { AppContext } from "../context/appContext";
+import { AppContext } from "../context/AppContext";
 import Saldo from '../components/saldo'
 import Caixinhas from "../components/caixinhas";
 import Lançamentos from '../components/lançamentos'
@@ -22,7 +22,7 @@ function MainPage(){
         { nome: 'Investimento', valor: 5000 }
     ];
 
-    const{ sb, setSb } = useContext(AppContext)
+    const { sb, setSb } = useContext(AppContext);
 
     const componentArray = [<Saldo/>, <Caixinhas/>, <Lançamentos/>, <Estatísticas/>, <Perfil/>]
 
