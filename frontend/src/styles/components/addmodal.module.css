@@ -34,6 +34,16 @@
     margin-top: 10px;
 }
 
+.romero{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+}
+
+
+
 .inputs{
     width: 80%;
     display: flex;

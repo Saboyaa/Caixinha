@@ -3,8 +3,11 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from '../context/AuthProvider';
+import { useContext } from 'react';
+import { AppContext } from '../context/AppContext';
 
 function Addmodal2() {
+    const{m1, setM1, sb, setSb} = useContext(AppContext);
     const [bancoSelecionado, setBancoSelecionado] = useState('');
     const [montante, setMontante] = useState('');
     const [id, setID] = useState('');
@@ -48,14 +51,19 @@ function Addmodal2() {
       })
       .then((data) => {
         console.log(data);
+        setMontante('');
+        setID('');
+        setM1(false);
+        setSb(2);
+        setSb(1);
       })
     };
 
     return(
       <div className={styles.Container}>
-        <h2>Adicionar Entrada</h2>
+        <h2>Adicionar <br></br>Conta Bancaria</h2>
          <div className={styles.forms}>
-           <form onSubmit={handleSubmit}>
+           <form onSubmit={handleSubmit} className={styles.romero}>
            <div className={styles.inputs}>  
               <input
                 type="Valor em Reais"
@@ -66,7 +74,7 @@ function Addmodal2() {
               />
               <input
                 type="text"
-                placeholder="ID"
+                placeholder="Número da Conta"
                 id="Id"
                 value={id}
                 onChange={(e) => setID(e.target.value)}
@@ -90,7 +98,7 @@ function Addmodal2() {
                 <h4>Formulário não submetido. Preencha os campos vazios</h4>
               </div>
             )}
-            <button type='submit' style ={{width: '50%'}}>Adicionar Entrada</button>
+            <button type='submit' style ={{width: '50%'}}>Adicionar Conta</button>
           </form>
         </div>
       </div>  

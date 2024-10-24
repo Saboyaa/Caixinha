@@ -4,8 +4,13 @@ import Card2 from './cardsaldo';
 import Addmodal2 from './addmodal2';
 import { AiOutlineClose } from 'react-icons/ai';
 import { useAuth } from '../context/AuthProvider';
+import { useContext } from 'react';
+import { AppContext } from '../context/AppContext';
+
 
 const Saldo = () => {
+
+    const{m1, setM1} = useContext(AppContext);
     const { token } = useAuth();
     const [accounts, setAccounts] = useState([]);
     const [saldoTotal, setSaldoTotal] = useState(0);
@@ -33,14 +38,12 @@ const Saldo = () => {
         })
     }, []);
 
-    const [modal1, setmodal1] = useState(false);
-
     const openModal1 = () =>{
-        setmodal1(true);
+        setM1(true);
     }
 
     const closeModal1 = () =>{
-        setmodal1(false);
+        setM1(false);
     }
 
     return(
@@ -59,10 +62,10 @@ const Saldo = () => {
                 {accounts.map((banco, index) => (
                             <Card2 key={index} banco={banco}/>
                         ))}
-                </div>
+            </div>
             <div className={styles.modal}>
                 <button className={styles.btn} onClick={openModal1}><p>Adicionar um banco</p></button>
-                {modal1 && (
+                {m1 && (
                                 <div className={styles.modaloverlay}>
                                     <div className={styles.modalcontent}>
                                         <div className={styles.closeoption}>

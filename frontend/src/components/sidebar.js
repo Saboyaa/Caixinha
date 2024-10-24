@@ -15,6 +15,7 @@ import { useAuth } from '../context/AuthProvider';
 
 const Sidebar = () => {
   const{ sb, setSb } = useContext(AppContext);
+  const { setToken } = useAuth();
 
   const navigate = useNavigate();
 
@@ -39,7 +40,6 @@ const Sidebar = () => {
   }
 
   const logout = () =>{
-    const { setToken } = useAuth();
     setToken({});
     navigate('/');
   }
@@ -70,7 +70,7 @@ const Sidebar = () => {
       </div>
       <div className={styles.logout}>
         <button className={styles.logoutbutton} onClick={logout}>
-          <span>Logout</span>
+          <span>logout</span>
         </button>
       </div>
     </div>

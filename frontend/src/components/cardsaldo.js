@@ -15,28 +15,30 @@ const Card2 = ({banco}) =>{
     const logos = [Bradesco, Itau, BancodoBrasil, Nubank, Picpay];
 
     useEffect(() => {
-        if (banco.nome=== 'Bradesco') {
+        if (banco.bankName === 'Bradesco') {
             setLogot(0);
         } 
-        if (banco.nome=== 'Itau') {
+        if (banco.bankName === 'Itau') {
             setLogot(1);
         } 
-        if (banco.nome=== 'Banco do Brasil') {
+        if (banco.bankName === 'Banco do Brasil') {
             setLogot(2);
         } 
-        if (banco.nome=== 'Nubank') {
+        if (banco.bankName === 'Nubank') {
             setLogot(3);
         } 
-        if (banco.nome=== 'Picpay') {
+        if (banco.bankName=== 'Picpay') {
             setLogot(4);
         } 
-    }, [banco.nome]);
+    }, []);
 
     return(
         <div className={styles.banco}>
-            <h3 className = {styles.img}><Logo image={logos[logot]}/></h3>
-            <h3 className = {styles.nome}>{banco.accountNumber}</h3>
-            <h3 className = {styles.nome}>{banco.bankName}</h3>
+            <div className={styles.romero2}>
+                <h3 className = {styles.img}><Logo image={logos[logot]}/></h3>
+                <h3 className = {styles.nome}>{banco.accountNumber}</h3>
+                <h3 className = {styles.nome}>{banco.bankName}</h3>
+            </div>
             <h3 className = {styles.saldo}>R${banco.accountBalance}</h3>
         </div>
     )

@@ -1,18 +1,19 @@
 .bancos{
-    margin-bottom: 10px;
-    max-height: 200px;
+    margin-bottom: 40px;
     overflow-y: auto;
 }
 
 .banco{
     display:flex;
+    margin-top: 20px;
     align-items: center;
     flex-direction: row;
-    height: 50px;
+    height: 80px;
 }
 
 .img{
     margin-left: 10px;
+    margin-bottom: 5px;
 }
 
 .nome{
@@ -22,4 +23,12 @@
 .saldo{
     margin-left: auto;
     margin-right: 30px;
+    font-size: 28px;
+}
+
+.romero2{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    font-size: 24px;
 }
