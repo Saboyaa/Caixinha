@@ -20,7 +20,7 @@ const Card = ({ transação }) => {
     const color = ['#fb3333', '#4cd080']
 
     useEffect(() => {
-        if (transação.valor < 0) {
+        if (transação.transactionValue < 0) {
             setIcont(0);
         } else {
             setIcont(1);
@@ -28,22 +28,22 @@ const Card = ({ transação }) => {
     }, [transação.transactionValue]);
     
     useEffect(() => {
-        if (transação.banco === 'Bradesco') {
+        if (transação.bankName === 'Bradesco') {
             setLogot(0);
         } 
-        if (transação.banco === 'Itau') {
+        if (transação.bankName === 'Itau') {
             setLogot(1);
         } 
-        if (transação.banco === 'Banco do Brasil') {
+        if (transação.bankName === 'Banco do Brasil') {
             setLogot(2);
         } 
-        if (transação.banco === 'Nubank') {
+        if (transação.bankName === 'Nubank') {
             setLogot(3);
         } 
-        if (transação.banco === 'Picpay') {
+        if (transação.bankName === 'Picpay') {
             setLogot(4);
         } 
-    }, [transação.bankName]);
+    }, []);
 
     const logos = [Bradesco, Itau, BancodoBrasil, Nubank, Picpay];
     
@@ -52,9 +52,14 @@ const Card = ({ transação }) => {
     return (
         <div className={styles.container}>
             <div className={styles.resto}>
-                <div style={{marginRight: '25px'}}><Logo image={logos[logot]}/></div>
-                <div style={{marginTop:'10px'}}>{icons[icont]}</div>
-                <div className={styles.text} style={{color: color[icont]}}>R${vl}</div>
+                <div className={styles.Content1}>
+                    <div>{transação.accountNumber}</div>
+                    <div style={{marginRight: '25px', marginLeft: '15px'}}><Logo image={logos[logot]}/></div>
+                </div>
+                <div className={styles.Content2}>
+                    <div style={{marginTop:'10px', marginLeft: '20px', marginRight: '10px'}}>{icons[icont]}</div>
+                    <div className={styles.text} style={{color: color[icont]}}>R${vl}</div>
+                </div>  
             </div>
         </div>
     );

@@ -14,7 +14,7 @@ import Perfil from "../components/perfil";
 function MainPage(){
     const { sb, setSb } = useContext(AppContext);
 
-    const componentArray = [<Saldo/>, <Caixinhas/>, <Lançamentos/>, <Estatísticas/>, <Perfil/>]
+    const componentArray = [<Saldo/>, <Lançamentos/>, <Estatísticas/>, <Perfil/>]
 
     return(
         <div className={styles.container}>
