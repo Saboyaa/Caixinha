@@ -8,6 +8,8 @@ import Itau from '../imgs/itaulogo.png'
 import BancodoBrasil from '../imgs/bancodobrasillogo.png'
 import Nubank from '../imgs/nubanklogo.png'
 import Picpay from '../imgs/picpaylogo.png'
+import Santander from '../imgs/santanderlogo.png'
+import Caixa from '../imgs/caixalogo.png'
 
 const Card = ({ transação }) => {
     const [icont, setIcont] = useState(1);
@@ -43,9 +45,15 @@ const Card = ({ transação }) => {
         if (transação.bankName === 'Picpay') {
             setLogot(4);
         } 
+        if (transação.bankName === 'Caixa') {
+            setLogot(5);
+        }
+        if (transação.bankName === 'Santander') {
+            setLogot(6);
+        }  
     }, []);
 
-    const logos = [Bradesco, Itau, BancodoBrasil, Nubank, Picpay];
+    const logos = [Bradesco, Itau, BancodoBrasil, Nubank, Picpay, Caixa, Santander];
     
     let vl = Math.abs(transação.transactionValue);
 

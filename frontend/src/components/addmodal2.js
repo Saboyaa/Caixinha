@@ -16,11 +16,12 @@ function Addmodal2() {
 
     const bancos = [
         "Banco do Brasil",
-        "Caixa Econômica",
+        "Caixa",
         "Bradesco",
         "Itaú",
         "Santander",
-        "Nubank"
+        "Nubank",
+        'Picpay'
     ];
 
     const handleBancoChange = (event) => {
