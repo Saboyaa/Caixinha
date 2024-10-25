@@ -37,7 +37,7 @@ const Saldo = () => {
             setAccounts(data);
         })
         .catch((err) => {
-            console.err(err);
+            console.log(err);
         })
     };
 

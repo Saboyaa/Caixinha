@@ -2,11 +2,11 @@ import styles from '../styles/components/estatísticas.module.css'
 import React from 'react';
 import Gráfico from '../components/gráfico';
 import { useState, useEffect } from 'react';
-
-
+import { useAuth } from '../context/AuthProvider';
 
 const Estatísticas = () => {
-    const { transactions, setTransactions } = useState([]);
+    const [transactions, setTransactions] = useState([]);
+    const { token } = useAuth();
 
     useEffect(() => {
         fetch('http://localhost:8080/transactions/userId/' + token.userId, {
@@ -22,28 +22,19 @@ const Estatísticas = () => {
             return res.json();
         })
         .then((data) => {
-            setTransactions(data);
+            const transactionsFiltered = data.filter(gasto => gasto.transactionValue < 0).map(item => new Object({valor: -1*item.transactionValue, motivo: item.type}));
+            setTransactions(transactionsFiltered);
         })
         .catch((err) => {
             console.log(err);
         });
     }, []);
 
-    const transactionsFiltered = transactions.filter(gasto => gasto.transactionValue < 0);
-    let typesSums;
-    transactionsFiltered.forEach(item => {
-        if (typesSums[item.type]) {
-            typesSums[item.type] += item.transactionValue;
-        } else {
-            typesSums[item.type] = item.transactionValue;
-        }
-    });
-
     return (
         <div className={styles.container}>
             <h2>Estatísticas</h2>
             <br></br>
-            <Gráfico array={typesSums}/>
+            <Gráfico array={transactions}/>
         </div>
     );
 }
