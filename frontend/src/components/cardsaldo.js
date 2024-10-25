@@ -10,10 +10,11 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import Logo from './logo'
 import { AiOutlineClose } from 'react-icons/ai'
+import { useAuth } from '../context/AuthProvider';
 
 const Card2 = ({banco}) =>{
-
     const [logot, setLogot] = useState(1);
+    const { token } = useAuth();
 
     useEffect(() => {
         if (banco.bankName === 'Bradesco') {
@@ -39,16 +40,31 @@ const Card2 = ({banco}) =>{
         }  
     }, []);
 
-    const handleSubmit = async (e) =>{
-        console.log('oi Romero')
-    }
+    const handleSubmit = async (event) =>{
+        event.preventDefault();
+
+        fetch("http://localhost:8080/accounts/" + banco.accountNumber, {
+            method: 'DELETE',
+            headers: {
+              Authorization: 'Bearer ' + token.token,
+            }
+          })
+          .then((res) => {
+            if (res.status !== 200 && res.status !== 201) {
+              throw new Error('Falha de requisição das transações!');
+            }
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+    };
 
     const logos = [Bradesco, Itau, BancodoBrasil, Nubank, Picpay, Caixa, Santander];
 
     return(
         <div className={styles.banco}>
             <div className={styles.romero2}>
-                <button className={styles.cbtn}><AiOutlineClose/></button>
+                <button onClick={handleSubmit} className={styles.cbtn}><AiOutlineClose/></button>
                 <h3 className = {styles.img}><Logo image={logos[logot]}/></h3>
                 <h3 className = {styles.nome}>{banco.accountNumber}</h3>
                 <h3 className = {styles.nome}>{banco.bankName}</h3>
