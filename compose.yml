@@ -1,0 +1,12 @@
+version: "1"
+services:
+    api:
+        image: caixinha:1.0
+        container_name: api-caixinha        
+        ports:
+            - "8080:8080"
+    client:
+        image: caixinha_front:1.0
+        container_name: front-end-caixinha
+        ports:
+            - "3000:3000"
