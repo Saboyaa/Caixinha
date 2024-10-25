@@ -57,6 +57,7 @@ function Delmodal(){
         body: JSON.stringify({
           userId: token.userId,
           accountNumber: bancoSelecionado.split(" ")[0],
+          bankName: bancoSelecionado.split(" ")[2],
           type: tipoSelecionado,
           transactionValue: -1*montante
         })

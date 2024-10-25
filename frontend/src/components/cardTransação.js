@@ -25,7 +25,7 @@ const Card = ({ transação }) => {
         } else {
             setIcont(1);
         }
-    }, [transação.valor]);
+    }, [transação.transactionValue]);
     
     useEffect(() => {
         if (transação.banco === 'Bradesco') {
@@ -43,12 +43,11 @@ const Card = ({ transação }) => {
         if (transação.banco === 'Picpay') {
             setLogot(4);
         } 
-    }, [transação.banco]);
-
+    }, [transação.bankName]);
 
     const logos = [Bradesco, Itau, BancodoBrasil, Nubank, Picpay];
     
-    let vl = Math.abs(transação.valor);
+    let vl = Math.abs(transação.transactionValue);
 
     return (
         <div className={styles.container}>

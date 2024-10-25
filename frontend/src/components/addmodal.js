@@ -51,6 +51,7 @@ function Addmodal(){
         body: JSON.stringify({
           userId: token.userId,
           accountNumber: bancoSelecionado.split(" ")[0],
+          bankName: bancoSelecionado.split(" ")[2],
           type: "entrada",
           transactionValue: montante
         })

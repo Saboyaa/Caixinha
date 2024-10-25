@@ -7,6 +7,7 @@ import Card from '../components/cardTransação';
 import { AppContext } from '../context/AppContext';
 
 const Lançamentos = () => {
+    const [transactions, setTransactions] = useState([]);
     const { m2, setM2, m3, setM3 } = useContext(AppContext);
 
     const openModal1 = () =>{
@@ -24,24 +25,36 @@ const Lançamentos = () => {
         setM3(false);
     }
 
-    const transaçõesFake = [
-        {
-            valor: 1500,
-            banco: 'Banco do Brasil'
-        },
-        {
-            valor: -1200,
-            banco: 'Nubank'
-        },
-        {
-            valor: 1800,
-            banco: 'Bradesco'
-        },
-        {
-            valor: 1800,
-            banco: 'Bradesco'
-        },
-    ]
+    const fetchData = () => {
+        fetch('http://localhost:8080/transactions/userId/' + token.userId, {
+            method: 'GET',
+            headers: {
+                Authorization: 'Bearer ' + token.token
+            }
+        })
+        .then((res) => {
+            if (res.status !== 200) {
+                throw new Error('Falha de requisição das transações!');
+            }
+            return res.json();
+        })
+        .then((data) => {
+            setTransactions(data);
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+    };
+
+    useEffect(() => {
+        fetchData();
+
+        const intervalId = setInterval(() => {
+            fetchData();
+        }, 10000);
+      
+        return () => clearInterval(intervalId);
+    }, []);
 
     return(
         <div className={styles.container}>
@@ -81,7 +94,7 @@ const Lançamentos = () => {
             <div className={styles.histórico}>
                 <h1>Histórico</h1>
                 <div className={styles.transações}>
-                    {transaçõesFake.map((transação, index) => (
+                    {transactions.map((transação, index) => (
                         <Card key={index} transação={transação}/>
                     ))}
                 </div>
