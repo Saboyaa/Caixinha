@@ -1,21 +1,18 @@
 import styles from '../styles/components/addmodal.module.css'
 import React from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useAuth } from '../context/AuthProvider';
 import { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
 
 function Addmodal2() {
-    const{m1, setM1, sb, setSb} = useContext(AppContext);
+    const { m1, setM1 } = useContext(AppContext);
     const [bancoSelecionado, setBancoSelecionado] = useState('');
     const [montante, setMontante] = useState('');
     const [id, setID] = useState('');
     const [erro, setErro] = useState(false);
 
     const { token } = useAuth();
-
-    const navigate = useNavigate();
 
     const bancos = [
         "Banco do Brasil",
@@ -47,16 +44,21 @@ function Addmodal2() {
         })
       })
       .then((res) => {
-        res.json();
+        if (res.status !== 200 && res.status !== 201) {
+          throw new Error('Falha de requisição das contas!');
+        }
+        return res.json();
       })
       .then((data) => {
-        console.log(data);
         setMontante('');
         setID('');
         setM1(false);
-        setSb(2);
-        setSb(1);
       })
+      .catch((err) => {
+        setErro(true);
+        setMontante('');
+        setID('');
+      });
     };
 
     return(
@@ -95,7 +97,7 @@ function Addmodal2() {
             </select>
             {erro && (
               <div className={styles.erro}>
-                <h4>Formulário não submetido. Preencha os campos vazios</h4>
+                <h4>Formulário não submetido</h4>
               </div>
             )}
             <button type='submit' style ={{width: '50%'}}>Adicionar Conta</button>

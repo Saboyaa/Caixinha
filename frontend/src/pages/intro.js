@@ -1,6 +1,5 @@
 import styles from '../styles/intro.module.css'
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
 import React from 'react';
 
 function Intro(){

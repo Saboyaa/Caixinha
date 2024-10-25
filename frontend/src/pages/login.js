@@ -85,7 +85,7 @@ function Login() {
                             </div>
                         )}
                         <button type="submit">Login</button>
-                        <Link to='/Resetsenha' style={{textDecoration: 'none', color: "#4cd080", fontWeight: "bold"}}>Esqueceu sua senha?</Link>
+                        {/* <Link to='/Resetsenha' style={{textDecoration: 'none', color: "#4cd080", fontWeight: "bold"}}>Esqueceu sua senha?</Link> */}
                     </form>
                 </div>
             </div>

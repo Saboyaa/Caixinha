@@ -1,39 +1,85 @@
 import styles from '../styles/components/addmodal.module.css'
 
 import React from "react";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useContext, useEffect } from "react";
+import { useAuth } from '../context/AuthProvider';
+import { AppContext } from '../context/AppContext';
 
 function Delmodal(){
-
     const [bancoSelecionado, setBancoSelecionado] = useState('');
     const [tipoSelecionado, setTipoSelecionado] = useState('');
+    const [montante, setMontante] = useState('');
+    const [userAccounts, setUserAccounts] = useState([]);
+    const [erro, setErro] = useState(false);
+    const { token } = useAuth(); 
+    const { setM3 } = useContext(AppContext);
 
     const tipos = [
       'saúde', 
       'vestuário',
       'educação',
       'lazer',
-      'Restaurantes',
+      'restaurantes',
       'gastos fixos'
-    ]
-
-    const bancos = [
-        "Banco do Brasil",
-        "Caixa Econômica",
-        "Bradesco",
-        "Itaú",
-        "Santander",
-        "Nubank"
     ];
 
-    const[montante, setMontante] = useState('')
+    useEffect(() => {
+      fetch('http://localhost:8080/accounts/userId/' + token.userId, {
+            method: 'GET',
+            headers: {
+                Authorization: 'Bearer ' + token.token
+            }
+        })
+        .then((res) => {
+            if (res.status !== 200) {
+                throw new Error('Falha de requisição das contas!');
+            }
+            return res.json();
+        })
+        .then((data) => {
+            console.log(data);
+            setUserAccounts(data.map(item => `${item.accountNumber} - ${item.bankName}`));
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    }, []);
 
-    const navigate = useNavigate();
+    const handleSubmit = async (event) => {
+      event.preventDefault();
 
-    //erros
-    const [erro1, setErro1] = useState(false);
-    const [erro3, seterro3] = useState(false);
+      fetch("http://localhost:8080/transactions", {
+        method: 'POST',
+        headers: {
+          Authorization: 'Bearer ' + token.token,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          userId: token.userId,
+          accountNumber: bancoSelecionado.split(" ")[0],
+          type: tipoSelecionado,
+          transactionValue: -1*montante
+        })
+      })
+      .then((res) => {
+        if (res.status !== 200 && res.status !== 201) {
+          throw new Error('Falha de requisição das transações!');
+        }
+        return res.json();
+      })
+      .then((data) => {
+        setMontante('');
+        setBancoSelecionado('');
+        setTipoSelecionado('');
+        setM3(false);
+      })
+      .catch((err) => {
+        setErro(true);
+        setMontante('');
+        setBancoSelecionado('');
+        setTipoSelecionado('');
+      });
+    };
 
     const handleBancoChange = (event) => {
         setBancoSelecionado(event.target.value);
@@ -41,31 +87,6 @@ function Delmodal(){
 
     const handleTipoChange = (event) => {
       setTipoSelecionado(event.target.value);
-  };
-
-
-    async function handleSubmit(e){
-        e.preventDefault();
-        setErro1(false);
-        seterro3(false);
-
-
-        if(montante === ''){
-            setErro1(true);
-        } else{
-
-            try {
-                // Cria/atualiza um documento com um ID específico
-                console.log("teste")
-            
-            } 
-            
-            catch (e) {
-                console.error("Erro: ", e);
-            }
-
-        }
-         
     };
 
     return(
@@ -73,7 +94,6 @@ function Delmodal(){
         <h2 style={{color: '#fb3333'}}>Adicionar Saída</h2>
         <div className={styles.forms}>
           <div className={styles.inputs}>
-            {/* <label htmlFor="Valor">Valor em Reais: </label> */}
             <input
               type="Valor em Reais"
               placeholder="Valor em Reais"
@@ -102,20 +122,15 @@ function Delmodal(){
                 required
             >
                 <option value="" disabled>Escolha um banco</option>
-                {bancos.map((banco, index) => (
+                {userAccounts.map((banco, index) => (
                     <option key={index} value={banco}>
                         {banco}
                     </option>
                 ))}
           </select>
-          {erro1 && (
+          {erro && (
             <div className={styles.erro}>
-              <h4>Formulário não submetido. Preencha os campos vazios</h4>
-            </div>
-          )}
-          {erro3 && (
-            <div className={styles.erro}>
-              <h4>Formulário não submetido. As Nomes não coincidem!</h4>
+              <h4>Formulário não submetido</h4>
             </div>
           )}
           <button style={{backgroundColor: "#fb3333", width: '50%'}} onClick={handleSubmit}>Adicionar Saída</button>

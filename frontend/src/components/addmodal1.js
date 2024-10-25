@@ -3,10 +3,7 @@ import React from "react";
 import { useState } from "react";
 
 
-function Addmodal1(){
-
-
-
+function Addmodal1() {
     const[montante, setMontante] = useState('');
     const[objetivo, setObjetivo] = useState("");
 

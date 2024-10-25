@@ -1,30 +1,28 @@
 import styles from '../styles/components/lançamentos.module.css'
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import Addmodal from '../components/addmodal';
 import Delmodal from '../components/delmodal';
 import { AiOutlineClose } from "react-icons/ai";
 import Card from '../components/cardTransação';
+import { AppContext } from '../context/AppContext';
 
 const Lançamentos = () => {
-    const [modal1, setmodal1] = useState(false);
-    const [modal2, setmodal2] = useState(false);
+    const { m2, setM2, m3, setM3 } = useContext(AppContext);
 
     const openModal1 = () =>{
-        setmodal1(true);
+        setM2(true);
     }
     const openModal2 = () =>{
-        setmodal2(true);
+        setM3(true);
     }
 
     const closeModal1 = () =>{
-        setmodal1(false);
+        setM2(false);
     }
 
     const closeModal2 = () =>{
-        setmodal2(false);
+        setM3(false);
     }
-    
-    const Transações = [];
 
     const transaçõesFake = [
         {
@@ -55,31 +53,30 @@ const Lançamentos = () => {
                     <button className={styles.addbutton} onClick={openModal1} style={{marginRight: "30px"}}>Adicionar Entrada</button>
                     <button className={styles.delbutton} onClick={openModal2}>Adicionar Saida</button>
                 </div>
-                {modal1 && (
-                                <div className={styles.modaloverlay}>
-                                    <div className={styles.modalcontent}>
-                                        <div className={styles.closeoption}>
-                                            <button className={styles.closebutton} onClick={closeModal1}>
-                                                <AiOutlineClose  color="white" size={24} />
-                                            </button>
-                                        </div>
-                                        <Addmodal/>
-                                    </div>
-                                </div>
-                    )}
-    
-                    {modal2 && (
-                                <div className={styles.modaloverlay}>
-                                    <div className={styles.modalcontent2}>
-                                        <div className={styles.closeoption}>
-                                            <button className={styles.closebutton} onClick={closeModal2}>
-                                                <AiOutlineClose  color="white" size={24} />
-                                            </button>
-                                        </div>
-                                        <Delmodal/>
-                                    </div>
-                                </div>    
-                    )}
+                {m2 && (
+                    <div className={styles.modaloverlay}>
+                        <div className={styles.modalcontent}>
+                            <div className={styles.closeoption}>
+                                <button className={styles.closebutton} onClick={closeModal1}>
+                                    <AiOutlineClose  color="white" size={24} />
+                                </button>
+                            </div>
+                            <Addmodal/>
+                        </div>
+                    </div>
+                )}
+                {m3 && (
+                    <div className={styles.modaloverlay}>
+                        <div className={styles.modalcontent2}>
+                            <div className={styles.closeoption}>
+                                <button className={styles.closebutton} onClick={closeModal2}>
+                                    <AiOutlineClose  color="white" size={24} />
+                                </button>
+                            </div>
+                            <Delmodal/>
+                        </div>
+                    </div>    
+                )}
             </div>
             <div className={styles.histórico}>
                 <h1>Histórico</h1>

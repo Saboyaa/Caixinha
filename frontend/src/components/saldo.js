@@ -10,12 +10,12 @@ import { AppContext } from '../context/AppContext';
 
 const Saldo = () => {
 
-    const{m1, setM1} = useContext(AppContext);
+    const { m1, setM1 } = useContext(AppContext);
     const { token } = useAuth();
     const [accounts, setAccounts] = useState([]);
     const [saldoTotal, setSaldoTotal] = useState(0);
 
-    useEffect(() => {
+    const fetchData = () => {
         fetch('http://localhost:8080/accounts/userId/' + token.userId, {
             method: 'GET',
             headers: {
@@ -36,6 +36,19 @@ const Saldo = () => {
             setSaldoTotal(sum);
             setAccounts(data);
         })
+        .catch((err) => {
+            console.err(err);
+        })
+    };
+
+    useEffect(() => {
+        fetchData();
+
+        const intervalId = setInterval(() => {
+            fetchData();
+        }, 10000);
+      
+        return () => clearInterval(intervalId);
     }, []);
 
     const openModal1 = () =>{
@@ -66,16 +79,16 @@ const Saldo = () => {
             <div className={styles.modal}>
                 <button className={styles.btn} onClick={openModal1}><p>Adicionar um banco</p></button>
                 {m1 && (
-                                <div className={styles.modaloverlay}>
-                                    <div className={styles.modalcontent}>
-                                        <div className={styles.closeoption}>
-                                            <button className={styles.closebutton} onClick={closeModal1}>
-                                                <AiOutlineClose  color="white" size={24} />
-                                            </button>
-                                        </div>
-                                        <Addmodal2/>
-                                    </div>
-                                </div>
+                    <div className={styles.modaloverlay}>
+                        <div className={styles.modalcontent}>
+                            <div className={styles.closeoption}>
+                                <button className={styles.closebutton} onClick={closeModal1}>
+                                    <AiOutlineClose  color="white" size={24} />
+                                </button>
+                            </div>
+                            <Addmodal2/>
+                        </div>
+                    </div>
                 )}
             </div>
         </div>
