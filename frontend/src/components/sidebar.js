@@ -35,9 +35,6 @@ const Sidebar = () => {
     setSb(4);
   }
 
-  const b5 = () =>{
-    setSb(5);
-  }
 
   const logout = () =>{
     setToken({});
@@ -53,19 +50,15 @@ const Sidebar = () => {
         </div>
         <div className={styles.navlink}>
           <FaBoxOpen style={{marginRight: "5px", color: "4cd080"}}/>
-          <button onClick={b2} className={styles.btn}>Caixinha</button>
+          <button onClick={b2} className={styles.btn}>Lançamentos</button>
         </div>
         <div className={styles.navlink}>
           <FaHistory style={{marginRight: "5px", color: "4cd080"}}/>
-          <button onClick={b3} className={styles.btn}>Lançamentos</button>
+          <button onClick={b3} className={styles.btn}>Estatísticas</button>
         </div>
         <div className={styles.navlink}>
           <AiOutlineBarChart style={{marginRight: "5px", color: "4cd080"}}/>
-          <button onClick={b4} className={styles.btn}>Estatísticas</button>
-        </div>
-        <div className={styles.navlink}>
-          <FaUser style={{marginRight: "5px", color: "4cd080"}}/>
-          <button onClick={b5} className={styles.btn}>Perfil</button>
+          <button onClick={b4} className={styles.btn}>Perfil</button>
         </div>
       </div>
       <div className={styles.logout}>

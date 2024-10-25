@@ -13,13 +13,23 @@
 
 .resto{
     display: flex;
-    width: 45%;
+    width: 65%;
     height: auto;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 
 .text{
     margin-right: 30px;
+}
+
+.Content1{
+    display: flex;
+    align-items: center;
+}
+
+.Content2{
+    display: flex;
+    align-items: center;
 }
