@@ -26,6 +26,12 @@ public class Transaction {
     @Column(nullable = false, name = "account_number")
     private String accountNumber;
 
+    @Column(nullable = false, name = "bank_name")
+    private String bankName;
+
+    @Column(nullable = true, name = "type")
+    private String type;
+
     @Column(nullable = false, name = "value")
     private BigDecimal transactionValue = new BigDecimal(0.00);
 
@@ -73,9 +79,26 @@ public class Transaction {
         this.createdAt = createdAt;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getBankName() {
+        return bankName;
+    }
+
+    public void setBankName(String bankName) {
+        this.bankName = bankName;
+    }
+
     @Override
     public String toString() {
-        return "Transaction [id=" + id + ", userId=" + userId + ", accountNumber=" + accountNumber
-                + ", transactionValue=" + transactionValue + ", createdAt=" + createdAt + "]";
+        return "Transaction [id=" + id + ", userId=" + userId + ", accountNumber=" + accountNumber + ", bankName="
+                + bankName + ", type=" + type + ", transactionValue=" + transactionValue + ", createdAt=" + createdAt
+                + "]";
     }
 }

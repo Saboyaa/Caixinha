@@ -1,14 +1,16 @@
 import styles from '../styles/components/lançamentos.module.css'
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import Addmodal from '../components/addmodal';
 import Delmodal from '../components/delmodal';
 import { AiOutlineClose } from "react-icons/ai";
 import Card from '../components/cardTransação';
 import { AppContext } from '../context/AppContext';
+import { useAuth } from '../context/AuthProvider';
 
 const Lançamentos = () => {
     const [transactions, setTransactions] = useState([]);
     const { m2, setM2, m3, setM3 } = useContext(AppContext);
+    const { token } = useAuth();
 
     const openModal1 = () =>{
         setM2(true);
