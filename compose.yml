@@ -1,12 +1,12 @@
 version: "1"
 services:
     api:
-        image: saboyaa/caixinha:1.0
+        image: saboyaa/caixinha:1.1
         container_name: api-caixinha        
         ports:
             - "8080:8080"
     client:
-        image: saboyaa/caixinha_front:1.0
+        image: saboyaa/caixinha_front:1.1
         container_name: front-end-caixinha
         ports:
             - "3000:3000"
