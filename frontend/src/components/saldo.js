@@ -46,7 +46,7 @@ const Saldo = () => {
 
         const intervalId = setInterval(() => {
             fetchData();
-        }, 10000);
+        }, 300);
       
         return () => clearInterval(intervalId);
     }, []);
