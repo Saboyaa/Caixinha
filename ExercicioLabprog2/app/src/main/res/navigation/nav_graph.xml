@@ -1,0 +1,17 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/saldoFragment">
+
+    <fragment
+        android:id="@+id/saldoFragment"
+        android:name="com.example.exerciciolabprog2.SaldoFragment"
+        android:label="Saldos"
+        tools:layout="@layout/fragment_saldo" />
+
+    <fragment
+        android:id="@+id/adicionarBancoFragment"
+        android:name="com.example.exerciciolabprog2.AdicionarBancoFragment"
+        android:label="Adicionar Bancos"
+        tools:layout="@layout/fragment_adicionar_banco" />
+</navigation>
