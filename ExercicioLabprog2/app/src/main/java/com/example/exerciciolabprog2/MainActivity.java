@@ -1,7 +1,9 @@
 package com.example.exerciciolabprog2;
 
+import static java.security.AccessController.getContext;
+
 import android.os.Bundle;
-import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -58,7 +60,9 @@ public class MainActivity extends AppCompatActivity {
             client.newCall(request).enqueue(new Callback() {
                 @Override
                 public void onFailure(@NonNull Call call, @NonNull IOException e) {
-                    Log.e("ERROR", "Network request failed", e);
+                    runOnUiThread(() -> {
+                        Toast.makeText(getApplicationContext(), "Falha na requisição de dados", Toast.LENGTH_SHORT).show();
+                    });
                 }
 
                 @Override
@@ -73,7 +77,9 @@ public class MainActivity extends AppCompatActivity {
                             e.printStackTrace();
                         }
                     } else {
-                        Log.e("ERROR", "Request failed with status code: " + response.code());
+                        runOnUiThread(() -> {
+                            Toast.makeText(getApplicationContext(), "Erro na resposta: " + response.code(), Toast.LENGTH_SHORT).show();
+                        });
                     }
                 }
             });

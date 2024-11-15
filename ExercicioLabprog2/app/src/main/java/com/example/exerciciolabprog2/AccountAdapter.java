@@ -7,14 +7,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.List;
+import java.util.ArrayList;
 
-public class ContaAdapter extends RecyclerView.Adapter<ContaAdapter.ContaViewHolder> {
+public class AccountAdapter extends RecyclerView.Adapter<AccountAdapter.ContaViewHolder> {
 
-    private List<Conta> contas;
+    private ArrayList<Account> accounts;
 
-    public ContaAdapter(List<Conta> contas) {
-        this.contas = contas;
+    public AccountAdapter(ArrayList accounts) {
+        this.accounts = accounts;
     }
 
     @NonNull
@@ -26,25 +26,25 @@ public class ContaAdapter extends RecyclerView.Adapter<ContaAdapter.ContaViewHol
 
     @Override
     public void onBindViewHolder(@NonNull ContaViewHolder holder, int position) {
-        Conta conta = contas.get(position);
-        holder.tvNumeroConta.setText(conta.getNumeroConta());
-        holder.tvBanco.setText(conta.getBanco());
-        holder.tvSaldo.setText(String.format("R$%.2f", conta.getSaldo()));
+        Account account = (Account) accounts.get(position);
+        holder.tvAccountNumber.setText(account.getAccountNumber());
+        holder.tvBankName.setText(account.getBankName());
+        holder.tvAccountBalance.setText(String.format("R$%.2f", account.getAccountBalance()));
     }
 
     @Override
     public int getItemCount() {
-        return contas.size();
+        return accounts.size();
     }
 
     public static class ContaViewHolder extends RecyclerView.ViewHolder {
-        TextView tvNumeroConta, tvBanco, tvSaldo;
+        TextView tvAccountNumber, tvBankName, tvAccountBalance;
 
         public ContaViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvNumeroConta = itemView.findViewById(R.id.tvNumeroConta);
-            tvBanco = itemView.findViewById(R.id.tvBanco);
-            tvSaldo = itemView.findViewById(R.id.tvSaldo);
+            tvAccountNumber = itemView.findViewById(R.id.tvNumeroConta);
+            tvBankName = itemView.findViewById(R.id.tvBanco);
+            tvAccountBalance = itemView.findViewById(R.id.tvSaldo);
         }
     }
 }
