@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="bancos_array">
+        <item>Itaú</item>
+        <item>Caixa</item>
+    </string-array>
+    <color name="black">#FF000000</color>
+    <color name="cinzinha">#f4f4f4</color>
+    <color name="green">#4cd080</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="adicionar_banco">adicionar banco</string>
+    <string name="app_name">ExercicioLabprog2</string>
+    <string name="caixinha">Caixinha</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="numero_da_conta">Numero da Conta:</string>
+    <string name="page1_title">Página 1</string>
+    <string name="page2_title">Página 2</string>
+    <string name="valor_guardado">Valor guardado:</string>
+    <style name="Theme.ExercicioLabprog2" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        
+    </style>
+</resources>
