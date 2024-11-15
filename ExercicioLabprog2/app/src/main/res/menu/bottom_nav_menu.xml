@@ -2,10 +2,10 @@
     <item
         android:id="@+id/saldoFragment"
         android:icon="@drawable/ic_page1"
-        android:title="Página 1" />
+        android:title="Saldo" />
 
     <item
         android:id="@+id/adicionarBancoFragment"
         android:icon="@drawable/ic_page2"
-        android:title="Página 2" />
+        android:title="Adicionar conta" />
 </menu>

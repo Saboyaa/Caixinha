@@ -4,8 +4,8 @@
     <string name="page2_title">Página 2</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="numero_da_conta">Numero da Conta</string>
-    <string name="valor_guardado">Valor guardado</string>
+    <string name="numero_da_conta">Numero da Conta:</string>
+    <string name="valor_guardado">Valor guardado:</string>
     <string name="caixinha">Caixinha</string>
     <string name="adicionar_banco">adicionar banco</string>
     <string-array name="bancos_array">

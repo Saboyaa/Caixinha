@@ -4,11 +4,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#EFEFEF">
+    android:background="#EFEFEF"
+    android:padding="16dp">
 
     <!-- Texto "Caixinha" no canto superior esquerdo -->
 
     <!-- Texto "Adicionar Bancos" centralizado -->
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="88dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/img" />
 
     <TextView
         android:layout_width="173dp"
@@ -49,7 +61,7 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="132dp"
+        android:layout_marginStart="116dp"
         android:layout_marginBottom="72dp"
         android:text="@string/adicionar_banco"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -66,8 +78,8 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/textInputEditText"
-        android:layout_width="184dp"
-        android:layout_height="53dp"
+        android:layout_width="146dp"
+        android:layout_height="63dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="200dp"
         android:hint="digite o número"
@@ -78,8 +90,8 @@
         android:id="@+id/spinner_bancos"
         android:layout_width="312dp"
         android:layout_height="48dp"
-        android:layout_marginStart="49dp"
-        android:layout_marginBottom="59dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="52dp"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintStart_toStartOf="parent" />
 
