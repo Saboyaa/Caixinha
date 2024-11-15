@@ -1,8 +1,6 @@
 package com.example.exerciciolabprog2;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.StrictMode;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -28,7 +26,7 @@ import okhttp3.Response;
 
 
 public class MainActivity extends AppCompatActivity {
-    private OkHttpClient client;
+    private TokenManager tokenManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,12 +38,12 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = navHostFragment.getNavController();
         NavigationUI.setupWithNavController(bottomNavigationView, navController);
 
-        client = new OkHttpClient();
-
+        tokenManager = new TokenManager(this);
         makeLoginRequest();
     }
 
     private void makeLoginRequest() {
+        OkHttpClient client = new OkHttpClient();
         JSONObject jsonObject = new JSONObject();
         try {
             jsonObject.put("email", "test1@test.com");
@@ -57,26 +55,28 @@ public class MainActivity extends AppCompatActivity {
                     .post(body)
                     .build();
 
-            // Asynchronous call
             client.newCall(request).enqueue(new Callback() {
                 @Override
                 public void onFailure(@NonNull Call call, @NonNull IOException e) {
-                    // Log the error if the request fails
                     Log.e("ERROR", "Network request failed", e);
                 }
 
                 @Override
                 public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
                     if (response.isSuccessful()) {
-                        // Handle the response
-                        String responseBody = response.body().string();
-                        Log.d("DEBUG", "Response: " + responseBody);
+                        try {
+                            JSONObject responseJson = new JSONObject(response.body().string());
+                            tokenManager.saveUserId(responseJson.getInt("id"));
+                            tokenManager.saveUsername(responseJson.getString("name"));
+                            tokenManager.saveToken(responseJson.getString("token"));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     } else {
                         Log.e("ERROR", "Request failed with status code: " + response.code());
                     }
                 }
             });
-
         } catch (JSONException e) {
             e.printStackTrace();
         }
