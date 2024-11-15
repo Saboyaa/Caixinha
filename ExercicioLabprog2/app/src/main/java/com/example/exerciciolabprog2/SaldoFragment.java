@@ -67,13 +67,13 @@ public class SaldoFragment extends Fragment {
             @Override
             public void onFailure(@NonNull Call call, @NonNull IOException e) {
                 getActivity().runOnUiThread(() -> {
-                    Toast.makeText(getContext(), "Falha na requisição de dados", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Falha na conexão", Toast.LENGTH_SHORT).show();
                 });
             }
 
             @Override
             public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
-                if (response.isSuccessful()) {
+                if (response.isSuccessful() && getActivity() != null) {
                     String jsonResponse = response.body().string();
 
                     try {

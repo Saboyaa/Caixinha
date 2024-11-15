@@ -54,7 +54,7 @@
         android:text="@string/valor_guardado"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textInputEditText"
+        app:layout_constraintBottom_toTopOf="@+id/textInputAccountNumber"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -68,16 +68,17 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/textInputAccountBalance"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="56dp"
         android:hint="digite o valor"
-        app:layout_constraintBottom_toTopOf="@+id/textInputEditText"
+        app:layout_constraintBottom_toTopOf="@+id/textInputAccountNumber"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEditText"
+        android:id="@+id/textInputAccountNumber"
         android:layout_width="146dp"
         android:layout_height="63dp"
         android:layout_marginEnd="16dp"

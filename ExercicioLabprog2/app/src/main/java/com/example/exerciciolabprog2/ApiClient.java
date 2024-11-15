@@ -1,7 +1,6 @@
 package com.example.exerciciolabprog2;
 
 import android.content.Context;
-import android.util.Log;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -43,7 +42,7 @@ public class ApiClient {
         client.newCall(request).enqueue(callback);
     }
 
-    public void postAccounts(Account newAccount, Callback callback) {
+    public void postAccount(Account newAccount, Callback callback) {
         try {
             JSONObject jsonObject = new JSONObject();
 
