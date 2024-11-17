@@ -18,6 +18,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:itemIconTint="@color/bottom_nav_cor_selector"
+        app:itemTextColor="@color/bottom_nav_cor_selector"
         app:backgroundTint="@color/white"
         app:menu="@menu/bottom_nav_menu" />
 

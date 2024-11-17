@@ -95,8 +95,8 @@
         android:id="@+id/spinner_bancos"
         android:layout_width="312dp"
         android:layout_height="48dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginBottom="52dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="88dp"
         android:background="@drawable/spinner_background"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintStart_toStartOf="parent" />

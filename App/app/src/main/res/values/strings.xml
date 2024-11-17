@@ -11,5 +11,9 @@
     <string-array name="bancos_array">
         <item>Itaú</item>
         <item>Caixa</item>
+        <item>Banco do Brasil</item>
+        <item>Nubank</item>
+        <item>PicPay</item>
+        <item>Santander</item>
     </string-array>
 </resources>
